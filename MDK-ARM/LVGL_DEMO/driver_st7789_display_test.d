@@ -1,0 +1,9 @@
+lvgl_demo\driver_st7789_display_test.o: ..\st7789_driver\src\driver_st7789_display_test.c
+lvgl_demo\driver_st7789_display_test.o: ../st7789_driver/inc/driver_st7789_display_test.h
+lvgl_demo\driver_st7789_display_test.o: ../st7789_driver/inc/driver_st7789_interface.h
+lvgl_demo\driver_st7789_display_test.o: ../st7789_driver/inc/driver_st7789.h
+lvgl_demo\driver_st7789_display_test.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdint.h
+lvgl_demo\driver_st7789_display_test.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdio.h
+lvgl_demo\driver_st7789_display_test.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\string.h
+lvgl_demo\driver_st7789_display_test.o: ../st7789_driver/inc/driver_st7789_display_image.h
+lvgl_demo\driver_st7789_display_test.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdlib.h

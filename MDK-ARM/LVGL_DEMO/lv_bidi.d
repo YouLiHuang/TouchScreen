@@ -1,0 +1,17 @@
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_bidi.c
+lvgl_demo\lv_bidi.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_bidi.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\../lv_conf_internal.h
+lvgl_demo\lv_bidi.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdint.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\../lv_conf_kconfig.h
+lvgl_demo\lv_bidi.o: ../LVGL/GUI/lvgl/examples/porting/../../lv_conf.h
+lvgl_demo\lv_bidi.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_txt.h
+lvgl_demo\lv_bidi.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_area.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\../font/lv_font.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\../font/lv_symbol_def.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_printf.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\lv_types.h
+lvgl_demo\lv_bidi.o: ..\LVGL\GUI\lvgl\src\misc\../misc/lv_mem.h
+lvgl_demo\lv_bidi.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\string.h

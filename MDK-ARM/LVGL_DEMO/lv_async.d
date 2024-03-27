@@ -1,0 +1,12 @@
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\lv_async.c
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\lv_async.h
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\lv_types.h
+lvgl_demo\lv_async.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdint.h
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\lv_mem.h
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\../lv_conf_internal.h
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\../lv_conf_kconfig.h
+lvgl_demo\lv_async.o: ../LVGL/GUI/lvgl/examples/porting/../../lv_conf.h
+lvgl_demo\lv_async.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+lvgl_demo\lv_async.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\string.h
+lvgl_demo\lv_async.o: ..\LVGL\GUI\lvgl\src\misc\lv_timer.h
+lvgl_demo\lv_async.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdbool.h

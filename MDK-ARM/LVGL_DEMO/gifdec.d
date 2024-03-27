@@ -1,0 +1,16 @@
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\gifdec.c
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\gifdec.h
+lvgl_demo\gifdec.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdint.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_fs.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_internal.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_kconfig.h
+lvgl_demo\gifdec.o: ../LVGL/GUI/lvgl/examples/porting/../../lv_conf.h
+lvgl_demo\gifdec.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_log.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_types.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_mem.h
+lvgl_demo\gifdec.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+lvgl_demo\gifdec.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\string.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_color.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_assert.h
+lvgl_demo\gifdec.o: ..\LVGL\GUI\lvgl\src\extra\libs\gif\../../../misc/lv_math.h

@@ -1,0 +1,9 @@
+lvgl_demo\qrcodegen.o: ..\LVGL\GUI\lvgl\src\extra\libs\qrcode\qrcodegen.c
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\assert.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\limits.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\string.h
+lvgl_demo\qrcodegen.o: ..\LVGL\GUI\lvgl\src\extra\libs\qrcode\qrcodegen.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+lvgl_demo\qrcodegen.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdint.h
