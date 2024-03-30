@@ -128,6 +128,7 @@ uint8_t st7789_basic_init(void)
     }
 
     /* display inversion on */
+    #if DISPLAY_INVERSION == 1
     res = st7789_display_inversion_on(&gs_handle);
     if (res != 0)
     {
@@ -136,6 +137,7 @@ uint8_t st7789_basic_init(void)
 
         return 1;
     }
+    #endif
 
     /* set default gamma */
     res = st7789_set_gamma(&gs_handle, ST7789_BASIC_DEFAULT_GAMMA_CURVE);

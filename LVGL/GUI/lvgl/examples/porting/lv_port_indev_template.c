@@ -3,7 +3,7 @@
  *
  */
 
- /*Copy this file as "lv_port_indev.c" and set this value to "1" to enable content*/
+/*Copy this file as "lv_port_indev.c" and set this value to "1" to enable content*/
 #if 1
 
 /*********************
@@ -11,7 +11,7 @@
  *********************/
 #include "lv_port_indev_template.h"
 #include "../../lvgl.h"
-
+#include "touch.h"
 
 /*********************
  *      DEFINES
@@ -20,20 +20,22 @@
 /**********************
  *      TYPEDEFS
  **********************/
-
+extern uint16_t Vertical;
+extern uint16_t Horizon;
+extern key_state_t IRQ;
 /**********************
  *  STATIC PROTOTYPES
  **********************/
 
 static void touchpad_init(void);
-static void touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data);
+static void touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data);
 static bool touchpad_is_pressed(void);
-static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y);
+static void touchpad_get_xy(lv_coord_t *x, lv_coord_t *y);
 
 /**********************
  *  STATIC VARIABLES
  **********************/
-lv_indev_t * indev_touchpad;
+lv_indev_t *indev_touchpad;
 
 /**********************
  *      MACROS
@@ -68,22 +70,22 @@ void lv_port_indev_init(void)
 /*Initialize your touchpad*/
 static void touchpad_init(void)
 {
-    
+    Touch_init();
 }
 
 /*Will be called by the library to read the touchpad*/
-static void touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
+static void touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data)
 {
     static lv_coord_t last_x = 0;
     static lv_coord_t last_y = 0;
 
     /*Save the pressed coordinates and the state*/
-    if(touchpad_is_pressed()) 
+    if (touchpad_is_pressed())
     {
         touchpad_get_xy(&last_x, &last_y);
         data->state = LV_INDEV_STATE_PR;
-    } 
-    else 
+    }
+    else
     {
         data->state = LV_INDEV_STATE_REL;
     }
@@ -96,16 +98,18 @@ static void touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
 /*Return true is the touchpad is pressed*/
 static bool touchpad_is_pressed(void)
 {
-
-    return false;
+    if (IRQ)
+        return false;
+    else
+        return true;
 }
 
 /*Get the x and y coordinates if the touchpad is pressed*/
-static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y)
+static void touchpad_get_xy(lv_coord_t *x, lv_coord_t *y)
 {
     /*Your code comes here*/
-
-
+    *y = Vertical;
+    *x = Horizon;
 }
 
 #else /*Enable this file at the top*/

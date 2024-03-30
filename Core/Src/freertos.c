@@ -30,6 +30,7 @@
 #include "lv_port_disp_template.h"
 #include "lv_demo_benchmark.h"
 #include "touch.h"
+#include "mygui.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,8 +43,8 @@
 #define SYSLED (LED_GPIO_Port->BSRR = (((LED_GPIO_Port->ODR & LED_Pin) << 16U) | (~LED_GPIO_Port->ODR & LED_Pin)))
 void SysLed()
 {
-    /* Set selected pins that were at low level, and reset ones that were high */
-    LED_GPIO_Port->BSRR = ((LED_GPIO_Port->ODR & LED_Pin) << 16U) | (~LED_GPIO_Port->ODR & LED_Pin);
+  /* Set selected pins that were at low level, and reset ones that were high */
+  LED_GPIO_Port->BSRR = ((LED_GPIO_Port->ODR & LED_Pin) << 16U) | (~LED_GPIO_Port->ODR & LED_Pin);
 }
 /* USER CODE END PD */
 
@@ -55,43 +56,43 @@ void SysLed()
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 osMutexDef(lv);
-static int32_t x;
-static int32_t y;
-static uint8_t IRQ;
+extern uint16_t Vertical;
+extern uint16_t Horizon;
+extern key_state_t IRQ;
+
 /* USER CODE END Variables */
 /* Definitions for userThread */
 osThreadId_t userThreadHandle;
 const osThreadAttr_t userThread_attributes = {
-  .name = "userThread",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+    .name = "userThread",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityNormal,
 };
 /* Definitions for lvGuiThread */
 osThreadId_t lvGuiThreadHandle;
 const osThreadAttr_t lvGuiThread_attributes = {
-  .name = "lvGuiThread",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+    .name = "lvGuiThread",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityNormal,
 };
 /* Definitions for ledThread */
 osThreadId_t ledThreadHandle;
 const osThreadAttr_t ledThread_attributes = {
-  .name = "ledThread",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+    .name = "ledThread",
+    .stack_size = 512 * 4,
+    .priority = (osPriority_t)osPriorityLow,
 };
 /* Definitions for myMutexlv */
 osMutexId_t myMutexlvHandle;
 const osMutexAttr_t myMutexlv_attributes = {
-  .name = "myMutexlv"
-};
+    .name = "myMutexlv"};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void startTask(void *argument);
+void userTask(void *argument);
 void lvGuiTask(void *argument);
 void ledTask(void *argument);
 
@@ -111,71 +112,72 @@ __weak void configureTimerForRunTimeStats(void)
 
 __weak unsigned long getRunTimeCounterValue(void)
 {
-    return 0;
+  return 0;
 }
 /* USER CODE END 1 */
 
 /* USER CODE BEGIN 2 */
 void vApplicationIdleHook(void)
 {
-    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
-    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
-    task. It is essential that code added to this hook function never attempts
-    to block in any way (for example, call xQueueReceive() with a block time
-    specified, or call vTaskDelay()). If the application makes use of the
-    vTaskDelete() API function (as this demo application does) then it is also
-    important that vApplicationIdleHook() is permitted to return to its calling
-    function, because it is the responsibility of the idle task to clean up
-    memory allocated by the kernel to any task that has since been deleted. */
+  /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
+  to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
+  task. It is essential that code added to this hook function never attempts
+  to block in any way (for example, call xQueueReceive() with a block time
+  specified, or call vTaskDelay()). If the application makes use of the
+  vTaskDelete() API function (as this demo application does) then it is also
+  important that vApplicationIdleHook() is permitted to return to its calling
+  function, because it is the responsibility of the idle task to clean up
+  memory allocated by the kernel to any task that has since been deleted. */
 }
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN 3 */
 void vApplicationTickHook(void)
 {
-    /* This function will be called by each tick interrupt if
-    configUSE_TICK_HOOK is set to 1 in FreeRTOSConfig.h. User code can be
-    added here, but the tick hook is called from an interrupt context, so
-    code must not attempt to block, and only the interrupt safe FreeRTOS API
-    functions can be used (those that end in FromISR()). */
-    lv_tick_inc(1);
+  /* This function will be called by each tick interrupt if
+  configUSE_TICK_HOOK is set to 1 in FreeRTOSConfig.h. User code can be
+  added here, but the tick hook is called from an interrupt context, so
+  code must not attempt to block, and only the interrupt safe FreeRTOS API
+  functions can be used (those that end in FromISR()). */
+  lv_tick_inc(1);
 }
 /* USER CODE END 3 */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
-void MX_FREERTOS_Init(void) {
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
-    // lv_demo_benchmark();
+  // lv_demo_benchmark();
   /* USER CODE END Init */
   /* Create the mutex(es) */
   /* creation of myMutexlv */
   myMutexlvHandle = osMutexNew(&myMutexlv_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
-    /* add mutexes, ... */
+  /* add mutexes, ... */
 
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
-    /* add semaphores, ... */
+  /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* USER CODE BEGIN RTOS_TIMERS */
-    /* start timers, add new ones, ... */
+  /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-    /* add queues, ... */
+  /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* creation of userThread */
-  userThreadHandle = osThreadNew(startTask, NULL, &userThread_attributes);
+  userThreadHandle = osThreadNew(userTask, NULL, &userThread_attributes);
 
   /* creation of lvGuiThread */
   lvGuiThreadHandle = osThreadNew(lvGuiTask, NULL, &lvGuiThread_attributes);
@@ -184,13 +186,12 @@ void MX_FREERTOS_Init(void) {
   ledThreadHandle = osThreadNew(ledTask, NULL, &ledThread_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-    /* add threads, ... */
+  /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
-    /* add events, ... */
+  /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
-
 }
 
 /* USER CODE BEGIN Header_startTask */
@@ -200,23 +201,25 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_startTask */
-void startTask(void *argument)
+void userTask(void *argument)
 {
   /* USER CODE BEGIN startTask */
 
-    /* Infinite loop */
-    for (;;)
-    {
-        /*do some thing here*/
-        taskENTER_CRITICAL();
-        x = getcoordinate(CMD_READX);
-        x = x * 320 / 4096;
-        y = getcoordinate(CMD_READY);
-        y = y * 240 / 4096;
-        IRQ = TOUCH_IRQ_READ;
-        taskEXIT_CRITICAL();
-        osDelay(100);
-    }
+  /* Infinite loop */
+  for (;;)
+  {
+    /*该线程用于检测触摸屏坐标*/
+    taskENTER_CRITICAL();
+    if (TOUCH_IRQ_READ) IRQ = RELEASE;
+    else IRQ = PRESSED;
+    Vertical = getcoordinate(CMD_READX);
+    Horizon = getcoordinate(CMD_READY);
+    taskEXIT_CRITICAL();
+
+    /*其他的任务（如：串口shell任务等）*/
+
+    osDelay(SCAN_PREIOD);
+  }
   /* USER CODE END startTask */
 }
 
@@ -230,75 +233,16 @@ void startTask(void *argument)
 void lvGuiTask(void *argument)
 {
   /* USER CODE BEGIN lvGuiTask */
-    // lv_demo_benchmark();
-    static lv_style_t style_area; // 创建样式
-    lv_style_init(&style_area);   // 初始化样式
-    lv_style_set_text_font(&style_area, &lv_font_montserrat_20);
-    lv_style_set_text_color(&style_area, lv_color_hex(0xffff));
-    lv_style_set_bg_color(&style_area, lv_color_hex(0x1145));
-    lv_style_set_bg_opa(&style_area, 200);
-    lv_style_set_border_color(&style_area, lv_color_hex(0xff00));
-    lv_style_set_border_width(&style_area, 2);
-
-    /*主布局*/
-    lv_obj_t *par = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(par, lv_obj_get_width(lv_scr_act()), lv_obj_get_height(lv_scr_act()));
-    lv_obj_set_style_bg_color(par, lv_color_hex(0x0000), LV_STATE_DEFAULT);
-    lv_obj_set_pos(par, 0, 0);
-
-    /*第一个区域显示x*/
-    lv_obj_t *area1 = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(area1, lv_obj_get_width(lv_scr_act()) * 4 / 5, lv_obj_get_height(lv_scr_act()) / 5);
-    lv_obj_add_style(area1, &style_area, 0);
-    lv_obj_align(area1, LV_ALIGN_TOP_MID, 0, 0);
-
-    /*第二个区域显示y*/
-    lv_obj_t *area2 = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(area2, lv_obj_get_width(lv_scr_act()) * 4 / 5, lv_obj_get_height(lv_scr_act()) / 5);
-    lv_obj_add_style(area2, &style_area, 0);
-    lv_obj_align(area2, LV_ALIGN_BOTTOM_MID, 0, 0);
-
-    /*第三个区域显示IRQ*/
-    lv_obj_t *area3 = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(area3, lv_obj_get_width(lv_scr_act()) * 4 / 5, lv_obj_get_height(lv_scr_act()) / 5);
-    lv_obj_add_style(area3, &style_area, 0);
-    lv_obj_align(area3, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_t *label = lv_label_create(area1);
-    lv_label_set_text_fmt(label, "XValue is :%d", 0);
-    lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_t *label2 = lv_label_create(area2);
-    lv_label_set_text_fmt(label2, "YValue is :%d", 0);
-    lv_obj_align(label2, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_t *label3 = lv_label_create(area3);
-    lv_obj_align(label3, LV_ALIGN_CENTER, 0, 0);
-
-    /* Infinite loop */
-    for (;;)
-    {
-        /*为了保证线程安全，采用互斥锁*/
-
-        osMutexAcquire(myMutexlvHandle, 0xff);
-
-        if (IRQ)
-        {
-            lv_label_set_text(label3, "not press!");
-            lv_label_set_text_fmt(label, "XValue is :%5d", 0);
-            lv_label_set_text_fmt(label2, "YValue is :%5d", 0);
-        }
-        else
-        {
-            lv_label_set_text(label3, "pressed!");
-            lv_label_set_text_fmt(label, "XValue is :%d", x);
-            lv_label_set_text_fmt(label2, "YValue is :%d", y);
-        }
-
-        lv_task_handler();
-        osMutexRelease(myMutexlvHandle);
-        vTaskDelay(5);
-    }
+  lv_mainstart();
+  /* Infinite loop */
+  for (;;)
+  {
+    /*为了保证线程安全，采用互斥锁*/
+    osMutexAcquire(myMutexlvHandle, 0xffff);
+    lv_task_handler();
+    osMutexRelease(myMutexlvHandle);
+    vTaskDelay(5);
+  }
   /* USER CODE END lvGuiTask */
 }
 
@@ -313,14 +257,14 @@ void ledTask(void *argument)
 {
   /* USER CODE BEGIN ledTask */
 
-    /* Infinite loop */
-    for (;;)
-    {
-        taskENTER_CRITICAL();
-        SYSLED;
-        taskEXIT_CRITICAL();
-        osDelay(1000);
-    }
+  /* Infinite loop */
+  for (;;)
+  {
+    taskENTER_CRITICAL();
+    SYSLED;
+    taskEXIT_CRITICAL();
+    osDelay(1000);
+  }
   /* USER CODE END ledTask */
 }
 
@@ -332,4 +276,3 @@ void sw_callback(lv_event_t *e)
 }
 
 /* USER CODE END Application */
-

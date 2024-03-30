@@ -177,6 +177,7 @@ lvgl_demo\main.o: ../LVGL/GUI/lvgl/src/extra/libs/freetype/lv_freetype.h
 lvgl_demo\main.o: ../LVGL/GUI/lvgl/src/extra/libs/rlottie/lv_rlottie.h
 lvgl_demo\main.o: ../LVGL/GUI/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.h
 lvgl_demo\main.o: ../LVGL/GUI/lvgl/examples/porting/lv_port_disp_template.h
+lvgl_demo\main.o: ../LVGL/GUI/lvgl/examples/porting/lv_port_indev_template.h
 lvgl_demo\main.o: ../LVGL/GUI_APP/demos/benchmark/lv_demo_benchmark.h
 lvgl_demo\main.o: ../LVGL/GUI_APP/demos/benchmark/../lv_demos.h
 lvgl_demo\main.o: ../LVGL/GUI_APP/demos/benchmark/../benchmark/lv_demo_benchmark.h

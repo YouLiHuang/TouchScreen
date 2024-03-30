@@ -3,6 +3,18 @@
         "lvgl.h": "c",
         "lv_port_disp_template.h": "c",
         "freertos.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "touch.h": "c",
+        "stdint.h": "c",
+        "mygui.h": "c",
+        "cmsis_os.h": "c",
+        "driver_st7789_basic.h": "c",
+        "lv_port_indev_template.h": "c",
+        "driver_st7789_tft.h": "c",
+        "string": "c",
+        "array": "c",
+        "string_view": "c",
+        "stdio.h": "c",
+        "stm32f4xx_hal_gpio.h": "c"
     }
 }

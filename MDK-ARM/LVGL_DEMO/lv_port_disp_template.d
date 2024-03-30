@@ -125,6 +125,6 @@ lvgl_demo\lv_port_disp_template.o: ../LVGL/GUI/lvgl/src/extra/libs/rlottie/lv_rl
 lvgl_demo\lv_port_disp_template.o: ../LVGL/GUI/lvgl/src/extra/libs/ffmpeg/lv_ffmpeg.h
 lvgl_demo\lv_port_disp_template.o: ../st7789_driver/inc/driver_st7789.h
 lvgl_demo\lv_port_disp_template.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdio.h
-lvgl_demo\lv_port_disp_template.o: ../st7789_driver/inc/driver_st7789_basic.h
+lvgl_demo\lv_port_disp_template.o: ../st7789_driver/inc/driver_st7789_tft.h
 lvgl_demo\lv_port_disp_template.o: ../st7789_driver/inc/driver_st7789_interface.h
 lvgl_demo\lv_port_disp_template.o: ../st7789_driver/inc/driver_st7789_display_test.h

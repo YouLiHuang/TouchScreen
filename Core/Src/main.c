@@ -36,6 +36,7 @@
 
 #include "lvgl.h"
 #include "lv_port_disp_template.h"
+#include "lv_port_indev_template.h"
 #include "lv_demo_benchmark.h"
 /* USER CODE END Includes */
 
@@ -108,6 +109,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   lv_init(); 
   lv_port_disp_init();
+  lv_port_indev_init();
 
   /* USER CODE END 2 */
 

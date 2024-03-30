@@ -4859,6 +4859,8 @@ uint8_t st7789_info(st7789_info_t *info)
     return 0;                                                      /* success return 0 */
 }
 
+
+
 void lvgl_fill_16bits_color(st7789_handle_t *handle, uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, uint16_t *image)
 {
     uint8_t buf[4];
@@ -4900,8 +4902,8 @@ void lvgl_fill_16bits_color(st7789_handle_t *handle, uint16_t left, uint16_t top
         for (j = 0; j < ST7789_BUFFER_SIZE; j += 2)                            /* fill the buffer */
         {
             color = image[(point % c) * r + (point / c)];                      /* set color */              
-            handle->buf[j] = (color >> 8) & 0xFF;                              /* set the color */
-            handle->buf[j + 1] = (color >> 0) & 0xFF;                          /* set the color */
+            handle->buf[j] = ((color >> 8) & 0xFF);                              /* set the color */
+            handle->buf[j + 1] = ((color >> 0) & 0xFF);                          /* set the color */
             point++;                                                           /* point++ */
         }
         a_st7789_write_bytes(handle, handle->buf,ST7789_BUFFER_SIZE, ST7789_DATA);
@@ -4918,7 +4920,5 @@ void lvgl_fill_16bits_color(st7789_handle_t *handle, uint16_t left, uint16_t top
         a_st7789_write_bytes(handle, handle->buf, n, ST7789_DATA);
 
     }
-
-
 
 }

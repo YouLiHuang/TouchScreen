@@ -37,3 +37,14 @@ lvgl_demo\touch.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 lvgl_demo\touch.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 lvgl_demo\touch.o: ../Core/Inc/spi.h
 lvgl_demo\touch.o: ../Core/Inc/tim.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+lvgl_demo\touch.o: ../Core/Inc/FreeRTOSConfig.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
+lvgl_demo\touch.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h

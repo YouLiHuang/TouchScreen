@@ -24,6 +24,7 @@
                 "i:\\CUBEMX\\prj\\LVGL_DEMO\\Middlewares\\Third_Party\\FreeRTOS\\Source\\CMSIS_RTOS_V2",
                 "i:\\CUBEMX\\prj\\LVGL_DEMO\\Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\RVDS\\ARM_CM4F",
                 "i:\\CUBEMX\\prj\\LVGL_DEMO\\Touch",
+                "i:\\CUBEMX\\prj\\LVGL_DEMO\\LVGL\\GUI_APP",
                 "D:\\Keil5_MDK\\ARM\\ARMCC\\include",
                 "D:\\Keil5_MDK\\ARM\\ARMCC\\include\\rw",
                 "i:\\CUBEMX\\prj\\LVGL_DEMO\\MDK-ARM",

@@ -49,8 +49,6 @@
 uint8_t st7789_interface_spi_init(void)
 {
 
-//	MX_SPI1_Init();
-//	return 0;
 	return spi_init(SPI_MODE_3);
 }
 

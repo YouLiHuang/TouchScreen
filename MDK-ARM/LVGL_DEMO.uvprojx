@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../st7789_driver/inc;../LVGL/GUI;../LVGL/GUI/lvgl;../LVGL/GUI/lvgl/src;../LVGL/GUI/lvgl/examples/porting;../LVGL/GUI_APP/demos;../LVGL/GUI_APP/demos/keypad_encoder;../LVGL/GUI_APP/demos/stress;../LVGL/GUI_APP/demos/widgets;../LVGL/GUI_APP/demos/widgets/assets;../LVGL/GUI_APP/demos/benchmark/assets;../LVGL/GUI_APP/demos/benchmark;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Touch</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../st7789_driver/inc;../LVGL/GUI;../LVGL/GUI/lvgl;../LVGL/GUI/lvgl/src;../LVGL/GUI/lvgl/examples/porting;../LVGL/GUI_APP/demos;../LVGL/GUI_APP/demos/keypad_encoder;../LVGL/GUI_APP/demos/stress;../LVGL/GUI_APP/demos/widgets;../LVGL/GUI_APP/demos/widgets/assets;../LVGL/GUI_APP/demos/benchmark/assets;../LVGL/GUI_APP/demos/benchmark;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Touch;..\LVGL\GUI_APP</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -735,6 +735,11 @@
               <FileType>1</FileType>
               <FilePath>..\st7789_driver\src\stm32f411_driver_st7789_interface.c</FilePath>
             </File>
+            <File>
+              <FileName>driver_st7789_tft.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\st7789_driver\src\driver_st7789_tft.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -744,6 +749,11 @@
               <FileName>lv_port_disp_template.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_port_indev_template.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LVGL\GUI\lvgl\examples\porting\lv_port_indev_template.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1617,6 +1627,11 @@
               <FileName>lv_font_bechmark_montserrat_28_compr_az.c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\LVGL\GUI_APP\demos\benchmark\assets\lv_font_bechmark_montserrat_28_compr_az.c.c</FilePath>
+            </File>
+            <File>
+              <FileName>mygui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LVGL\GUI_APP\mygui.c</FilePath>
             </File>
           </Files>
         </Group>
