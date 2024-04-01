@@ -205,6 +205,7 @@
 "lvgl_demo\lv_font_bechmark_montserrat_16_compr_az.c.o"
 "lvgl_demo\lv_font_bechmark_montserrat_28_compr_az.c.o"
 "lvgl_demo\mygui.o"
+"lvgl_demo\test_pic.o"
 "lvgl_demo\croutine.o"
 "lvgl_demo\event_groups.o"
 "lvgl_demo\list.o"

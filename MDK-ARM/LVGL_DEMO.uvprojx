@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../st7789_driver/inc;../LVGL/GUI;../LVGL/GUI/lvgl;../LVGL/GUI/lvgl/src;../LVGL/GUI/lvgl/examples/porting;../LVGL/GUI_APP/demos;../LVGL/GUI_APP/demos/keypad_encoder;../LVGL/GUI_APP/demos/stress;../LVGL/GUI_APP/demos/widgets;../LVGL/GUI_APP/demos/widgets/assets;../LVGL/GUI_APP/demos/benchmark/assets;../LVGL/GUI_APP/demos/benchmark;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Touch;..\LVGL\GUI_APP</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../st7789_driver/inc;../LVGL/GUI;../LVGL/GUI/lvgl;../LVGL/GUI/lvgl/src;../LVGL/GUI/lvgl/examples/porting;../LVGL/GUI_APP/demos;../LVGL/GUI_APP/demos/keypad_encoder;../LVGL/GUI_APP/demos/stress;../LVGL/GUI_APP/demos/widgets;../LVGL/GUI_APP/demos/widgets/assets;../LVGL/GUI_APP/demos/benchmark/assets;../LVGL/GUI_APP/demos/benchmark;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Touch;../LVGL/GUI_APP</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1632,6 +1632,11 @@
               <FileName>mygui.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\LVGL\GUI_APP\mygui.c</FilePath>
+            </File>
+            <File>
+              <FileName>test_pic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LVGL\GUI_APP\test_pic.c</FilePath>
             </File>
           </Files>
         </Group>

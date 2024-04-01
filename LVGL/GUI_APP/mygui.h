@@ -5,4 +5,6 @@
 #include "touch.h"
 void lv_mainstart(void);
 
+void my_test_demo(void);
+
 #endif

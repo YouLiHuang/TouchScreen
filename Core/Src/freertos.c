@@ -64,35 +64,36 @@ extern key_state_t IRQ;
 /* Definitions for userThread */
 osThreadId_t userThreadHandle;
 const osThreadAttr_t userThread_attributes = {
-    .name = "userThread",
-    .stack_size = 512 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "userThread",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for lvGuiThread */
 osThreadId_t lvGuiThreadHandle;
 const osThreadAttr_t lvGuiThread_attributes = {
-    .name = "lvGuiThread",
-    .stack_size = 512 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "lvGuiThread",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for ledThread */
 osThreadId_t ledThreadHandle;
 const osThreadAttr_t ledThread_attributes = {
-    .name = "ledThread",
-    .stack_size = 512 * 4,
-    .priority = (osPriority_t)osPriorityLow,
+  .name = "ledThread",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for myMutexlv */
 osMutexId_t myMutexlvHandle;
 const osMutexAttr_t myMutexlv_attributes = {
-    .name = "myMutexlv"};
+  .name = "myMutexlv"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void userTask(void *argument);
+void startTask(void *argument);
 void lvGuiTask(void *argument);
 void ledTask(void *argument);
 
@@ -144,12 +145,11 @@ void vApplicationTickHook(void)
 /* USER CODE END 3 */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
-void MX_FREERTOS_Init(void)
-{
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   // lv_demo_benchmark();
@@ -177,7 +177,7 @@ void MX_FREERTOS_Init(void)
 
   /* Create the thread(s) */
   /* creation of userThread */
-  userThreadHandle = osThreadNew(userTask, NULL, &userThread_attributes);
+  userThreadHandle = osThreadNew(startTask, NULL, &userThread_attributes);
 
   /* creation of lvGuiThread */
   lvGuiThreadHandle = osThreadNew(lvGuiTask, NULL, &lvGuiThread_attributes);
@@ -192,6 +192,7 @@ void MX_FREERTOS_Init(void)
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
+
 }
 
 /* USER CODE BEGIN Header_startTask */
@@ -201,7 +202,7 @@ void MX_FREERTOS_Init(void)
  * @retval None
  */
 /* USER CODE END Header_startTask */
-void userTask(void *argument)
+void startTask(void *argument)
 {
   /* USER CODE BEGIN startTask */
 
@@ -233,7 +234,8 @@ void userTask(void *argument)
 void lvGuiTask(void *argument)
 {
   /* USER CODE BEGIN lvGuiTask */
-  lv_mainstart();
+  //lv_mainstart();
+  my_test_demo();
   /* Infinite loop */
   for (;;)
   {
@@ -276,3 +278,4 @@ void sw_callback(lv_event_t *e)
 }
 
 /* USER CODE END Application */
+

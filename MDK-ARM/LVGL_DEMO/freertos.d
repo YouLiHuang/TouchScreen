@@ -173,5 +173,5 @@ lvgl_demo\freertos.o: ../Touch/touch.h
 lvgl_demo\freertos.o: D:\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdio.h
 lvgl_demo\freertos.o: ../Core/Inc/spi.h
 lvgl_demo\freertos.o: ../Core/Inc/tim.h
-lvgl_demo\freertos.o: ..\LVGL\GUI_APP\mygui.h
+lvgl_demo\freertos.o: ../LVGL/GUI_APP/mygui.h
 lvgl_demo\freertos.o: ../LVGL/GUI/lvgl/examples/porting/lv_port_disp_template.h
